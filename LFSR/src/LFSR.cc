@@ -26,6 +26,34 @@ bool LFSR::getBitAt(int i) {
     return bit;
 }
 
+unsigned char LFSR::getChar() { 
+	unsigned char result = 0;
+	for (char i = 0; i < 8; i++)
+		result |= (this->getValue() << i);
+	return result;
+}
+
+unsigned short LFSR::getShort() { 
+	unsigned short result = 0;
+	for (char i = 0; i < sizeof(unsigned short); i++)
+		result |= (this->getChar() << i*8);
+	return result;
+}
+
+unsigned int LFSR::getInt() {
+	unsigned int result = 0;
+	for (char i = 0; i < sizeof(unsigned int); i++) 
+		result |= (this->getChar() << i*8);
+	return result;
+}
+
+unsigned long LFSR::getLong() {
+	unsigned long result = 0;
+	for (char i = 0; i < sizeof(unsigned long); i++) 
+		result |= (this->getChar() << i*8);
+	return result;
+}
+
 void LFSR::shift() {
     /* Mask all the int, then XOR shifting */
     unsigned int workValue = registerValue & mask;

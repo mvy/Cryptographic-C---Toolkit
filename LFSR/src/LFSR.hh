@@ -51,6 +51,12 @@ private:
 public:
     /* Get the value, do the shift */
     bool getValue();
+	/* Convenient method */
+	unsigned char getChar();
+	unsigned short getShort();
+	unsigned int getInt();
+	unsigned long getLong();
+	
     /* Get position i */
     bool getBitAt(int);
     /* Apply a shift operation based on the polynomial */
