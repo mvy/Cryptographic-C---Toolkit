@@ -4,15 +4,16 @@
  */
 
 
-#ifndef LFSR_CPP
-#define LFSR_CPP
+#ifndef __LFSR_HH__
+#define __LFSR_HH__
 
+#include "CCTkConfig.hh"
 #include<vector>
 
 /**
  * Linear Feedback Shift Register
  *
- * More information on : 
+ * More information on :
  * http://en.wikipedia.org/wiki/Linear_feedback_shift_register
  */
 
@@ -43,10 +44,10 @@ private:
     /* Initial vector of the LFSR, must be set by constructor in the
      * same time registerValue is first set */
     unsigned int initialVector;
-    
+
     /* Mask, polynomial */
     unsigned int mask;
-    
+
 public:
     /* Get the value, do the shift */
     bool getValue();
@@ -54,12 +55,12 @@ public:
     bool getBitAt(int);
     /* Apply a shift operation based on the polynomial */
     void shift();
-    
-    /* 
-     * Reinitialisation 
+
+    /*
+     * Reinitialisatio
      * */
     void reinit();
-    
+
     LFSR(unsigned int mask, unsigned int);
     LFSR(const LFSR&);
     virtual ~LFSR();
