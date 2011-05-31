@@ -35,21 +35,21 @@ unsigned char LFSR::getChar() {
 
 unsigned short LFSR::getShort() { 
 	unsigned short result = 0;
-	for (char i = 0; i < sizeof(unsigned short); i++)
+	for (unsigned char i = 0; i < sizeof(unsigned short); i++)
 		result |= (this->getChar() << i*8);
 	return result;
 }
 
 unsigned int LFSR::getInt() {
 	unsigned int result = 0;
-	for (char i = 0; i < sizeof(unsigned int); i++) 
+	for (unsigned char i = 0; i < sizeof(unsigned int); i++) 
 		result |= (this->getChar() << i*8);
 	return result;
 }
 
 unsigned long LFSR::getLong() {
 	unsigned long result = 0;
-	for (char i = 0; i < sizeof(unsigned long); i++) 
+	for (unsigned char i = 0; i < sizeof(unsigned long); i++) 
 		result |= (this->getChar() << i*8);
 	return result;
 }
@@ -58,84 +58,62 @@ void LFSR::shift() {
     /* Mask all the int, then XOR shifting */
     unsigned int workValue = registerValue & mask;
 
+    /* We now applie 8bits masks to workValue */
+    unsigned int least32   = (workValue & LEAST32) >> 0; //Least signficants 8 bits
+    unsigned int low32     = (workValue & LOW32)   >> 8; //Lower significants 8 bits
+    unsigned int high32    = (workValue & HIGH32)  >> 16; //Higher significants 8 bits
+    unsigned int most32    = (workValue & MOST32)  >> 24; //Most significants 8 bits
+
+#ifdef LFSR64BITS
+     /* We now applie 8bits masks to workValue */
+    unsigned int least64   = (workValue & LEAST64) >> 32; //Least signficants 8 bits
+    unsigned int low64     = (workValue & LOW64)   >> 40; //Lower significants 8 bits
+    unsigned int high64    = (workValue & HIGH64)  >> 48; //Higher significants 8 bits
+    unsigned int most64    = (workValue & MOST64)  >> 56; //Most significants 8 bits
+#endif
+
     /* XORing 
      *
      * Masking gives us 0 for unused bits, and X for tapped bits
      * A XOR 0 = A so it does not matter how many 0 we XOR
      * */
-    int bit = 
-    (workValue >>  0) ^
-    (workValue >>  1) ^
-    (workValue >>  2) ^
-    (workValue >>  3) ^
-    (workValue >>  4) ^
-    (workValue >>  5) ^
-    (workValue >>  6) ^
-    (workValue >>  7) ^
-    (workValue >>  8) ^
-    (workValue >>  9) ^
-    (workValue >> 10) ^
-    (workValue >> 11) ^
-    (workValue >> 12) ^
-    (workValue >> 13) ^
-    (workValue >> 14) ^
-    (workValue >> 15) ^
-    (workValue >> 16) ^
-    (workValue >> 17) ^
-    (workValue >> 18) ^
-    (workValue >> 19) ^
-    (workValue >> 20) ^
-    (workValue >> 21) ^
-    (workValue >> 22) ^
-    (workValue >> 23) ^
-    (workValue >> 24) ^
-    (workValue >> 25) ^
-    (workValue >> 26) ^
-    (workValue >> 27) ^
-    (workValue >> 28) ^
-    (workValue >> 29) ^
-    (workValue >> 30) ^
-    (workValue >> 31)
+
+    /* First of all we XOR the char to each other */
+    unsigned char intermediateXOR = (unsigned char) least32 ^
+                            low32   ^
+                            high32  ^
+                            most32
 #ifdef LFSR64BITS
-    (workValue >> 32) ^
-    (workValue >> 33) ^
-    (workValue >> 34) ^
-    (workValue >> 35) ^
-    (workValue >> 36) ^
-    (workValue >> 37) ^
-    (workValue >> 38) ^
-    (workValue >> 39) ^
-    (workValue >> 40) ^
-    (workValue >> 41) ^
-    (workValue >> 42) ^
-    (workValue >> 43) ^
-    (workValue >> 44) ^
-    (workValue >> 45) ^
-    (workValue >> 46) ^
-    (workValue >> 47) ^
-    (workValue >> 48) ^
-    (workValue >> 49) ^
-    (workValue >> 50) ^
-    (workValue >> 51) ^
-    (workValue >> 52) ^
-    (workValue >> 53) ^
-    (workValue >> 54) ^
-    (workValue >> 55) ^
-    (workValue >> 56) ^
-    (workValue >> 57) ^
-    (workValue >> 58) ^
-    (workValue >> 59) ^
-    (workValue >> 60) ^
-    (workValue >> 61) ^
-    (workValue >> 62) ^
-    (workValue >> 63)
+                          ^ least64 ^
+                            low64   ^
+                            high64  ^
+                            most64
 #endif
-    ;
+                            ;
+
+    /* Now we XOR bit to bit the intermediate XOR */
+    unsigned char bit = (intermediateXOR >>  0) ^
+    (intermediateXOR >>  1) ^
+    (intermediateXOR >>  2) ^
+    (intermediateXOR >>  3) ^
+    (intermediateXOR >>  4) ^
+    (intermediateXOR >>  5) ^
+    (intermediateXOR >>  6) ^
+    (intermediateXOR >>  7) ^
+    (intermediateXOR >>  8);
 
     bit = bit & 1;
 
     /* shifting and updating */
-    registerValue = (registerValue >> 1) | (bit << 31);
+    registerValue = (registerValue >> 1) | (bit << 
+#ifdef LFSR32BITS 
+            31
+#else
+#   ifdef LFSR64BITS
+            63
+#   endif
+#endif
+            );
 }
 
 LFSR::LFSR(unsigned int mask, unsigned int seed) {
