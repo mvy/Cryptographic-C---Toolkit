@@ -29,7 +29,7 @@ bool LFSR::getBitAt(int i) {
 void LFSR::shift() {
     /* Mask all the int, then XOR shifting */
     unsigned int workValue = registerValue & mask;
-    
+
     /* XORing 
      *
      * Masking gives us 0 for unused bits, and X for tapped bits
@@ -67,10 +67,45 @@ void LFSR::shift() {
     (workValue >> 28) ^
     (workValue >> 29) ^
     (workValue >> 30) ^
-    (workValue >> 31);
-    
+    (workValue >> 31)
+#ifndef LFSR34BITS
+    (workValue >> 32) ^
+    (workValue >> 33) ^
+    (workValue >> 34) ^
+    (workValue >> 35) ^
+    (workValue >> 36) ^
+    (workValue >> 37) ^
+    (workValue >> 38) ^
+    (workValue >> 39) ^
+    (workValue >> 40) ^
+    (workValue >> 41) ^
+    (workValue >> 42) ^
+    (workValue >> 43) ^
+    (workValue >> 44) ^
+    (workValue >> 45) ^
+    (workValue >> 46) ^
+    (workValue >> 47) ^
+    (workValue >> 48) ^
+    (workValue >> 49) ^
+    (workValue >> 50) ^
+    (workValue >> 51) ^
+    (workValue >> 52) ^
+    (workValue >> 53) ^
+    (workValue >> 54) ^
+    (workValue >> 55) ^
+    (workValue >> 56) ^
+    (workValue >> 57) ^
+    (workValue >> 58) ^
+    (workValue >> 59) ^
+    (workValue >> 60) ^
+    (workValue >> 61) ^
+    (workValue >> 62) ^
+    (workValue >> 63)
+#endif
+    ;
+
     bit = bit & 1;
-    
+
     /* shifting and updating */
     registerValue = (registerValue >> 1) | (bit << 31);
 }
@@ -90,13 +125,5 @@ LFSR::LFSR(const LFSR& l) {
 
 LFSR::~LFSR() {
     /* Deletion */
-    
 }
 
-
-
-//TODO TODO TO DO
-//TODO TODO TO DO
-//TODO TODO TODO TODO TODO TODO TODOOOOO TODODODODO
-//TODO TODO TODO TODO TODO TODO TODOO-OO-OO
-//TOTODO TODO TODO-OO-OO-OOO TODODODO DO TODODODO DO
