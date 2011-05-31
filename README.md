@@ -16,6 +16,6 @@ The CCTk includes :
 
 Licence
 =======
-The CCTk is develop by the CCTk Team. See AUTHORS.md for the list of authors and
+The CCTk is developed by the CCTk Team. See AUTHORS.md for the list of authors and
 their participation in the different modules of the CCTk.
 This software is relase under the MIT license. See LICENSE.md for more information.
