@@ -3,7 +3,7 @@
  * Martial Lienert, Yves Stadler
  */
 
-#include "lfsr.h"
+#include "LFSR.hh"
 
 //TODO: add the error handling!!!
 
@@ -68,7 +68,7 @@ void LFSR::shift() {
     (workValue >> 29) ^
     (workValue >> 30) ^
     (workValue >> 31)
-#ifndef LFSR34BITS
+#ifdef LFSR64BITS
     (workValue >> 32) ^
     (workValue >> 33) ^
     (workValue >> 34) ^
