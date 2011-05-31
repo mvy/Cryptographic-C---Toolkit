@@ -10,17 +10,21 @@ set(CMAKE_CXX_FLAGS "-g -Wall")
 
 # Headers settings (variables)
 configure_file (
-    "${PROJECT_SOURCE_DIR}/CCTkConfig.hh.in"
-    "${PROJECT_BINARY_DIR}/CCTkConfig.hh"
+    "${PROJECT_SOURCE_DIR}/src/CCTkConfig.hh.in"
+    "${PROJECT_BINARY_DIR}/src/CCTkConfig.hh"
 )
 
 
 # Add binary tree to search path for include files
 include_directories("${PROJECT_BINARY_DIR}")
 
-add_executable(TestLFSR 
-    testLFSR.cc
-    LFSR.hh
-    LFSR.cc
-    aSyncLFSR.hh
-    aSyncLFSR.cc)
+file(
+    GLOB_RECURSE
+    lfsr_sources
+    src/*
+    )
+
+add_executable(test/TestLFSR 
+    test/testLFSR.cc
+    ${lfsr_sources}
+    )
