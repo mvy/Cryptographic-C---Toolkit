@@ -11,4 +11,8 @@ ed, Springer, 2005
 
 (See copy here: http://www-roc.inria.fr/secret/Anne.Canteaut/encyclopedia.pdf)
 
+See Also
+--------
 
+- Article on wikipedia :
+  http://en.wikipedia.org/wiki/Linear_feedback_shift_register
