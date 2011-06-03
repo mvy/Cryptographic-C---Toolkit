@@ -16,7 +16,9 @@ configure_file (
 
 
 # Add binary tree to search path for include files
-include_directories("${PROJECT_BINARY_DIR}")
+include_directories(
+    "${PROJECT_BINARY_DIR}/src"
+)
 
 file(
     GLOB_RECURSE
@@ -24,7 +26,13 @@ file(
     src/*
     )
 
-add_executable(test/TestLFSR 
-    test/testLFSR.cc
+# Tests executable
+add_executable(test/runLFSR 
+    test/LFSR_test.cc
     ${lfsr_sources}
-    )
+)
+
+add_executable(test/runBerlekampMassey
+    test/BerlekampMassey_test.cc
+    ${lfsr_sources}
+)

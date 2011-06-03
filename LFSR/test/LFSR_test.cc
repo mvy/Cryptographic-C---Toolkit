@@ -1,4 +1,4 @@
-#include "../src/LFSR.hh"
+#include "LFSR.hh"
 #include <iostream>
 
 int main(int argc, char *argv[]) {
