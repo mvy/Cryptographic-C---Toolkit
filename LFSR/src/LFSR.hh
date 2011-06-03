@@ -36,6 +36,10 @@ class LFSR;
 
 class LFSR {
 private:
+    /*
+     * The length of the register
+     */
+    unsigned int length;
     /* 
      * The value of the register
      * The capacity depends on the system implementation of int.
@@ -56,7 +60,7 @@ public:
 	unsigned short getShort();
 	unsigned int getInt();
 	unsigned long getLong();
-	
+
     /* Get position i */
     bool getBitAt(int);
     /* Apply a shift operation based on the polynomial */
@@ -67,7 +71,7 @@ public:
      * */
     void reinit();
 
-    LFSR(unsigned int mask, unsigned int);
+    LFSR(unsigned int length, unsigned int mask, unsigned int);
     LFSR(const LFSR&);
     virtual ~LFSR();
 };
