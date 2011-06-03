@@ -9,7 +9,12 @@ Developement
 - Review `TODO`s in the LFSR code
 
 - Implement the Courtois Meier test
-- Implement a way to counter this (see Anne's article?)
+- Implement a way to counter this (see Anne&quote;s article?)
+
+- Implement the generator for LFSR classes (OS 32/64; legnth of LFSR). It must
+take care of optimisation depending on the length of the LFSR.
+    - Do not XOR all bits if l < 8
+    - Create intermediate values of chars
 
 Validation
 ----------
