@@ -39,8 +39,10 @@ todo*
 See Also
 ---------
 
-- [1]
-- [2]
+- [Anne Canteaut's article][1]
+- [Wikipedia][2]
+- [Student project][3]
 
 [2]: http://en.wikipedia.org/wiki/Linear_feedback_shift_register
 [1]: http://www-roc.inria.fr/secret/Anne.Canteaut/encyclopedia.pdf
+[3]: http://www.cayrel.net/IMG/pdf/enonceLFSR.pdf
