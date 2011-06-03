@@ -27,6 +27,7 @@ file(
     )
 
 # Tests executable
+ENABLE_TESTING()
 add_executable(test/runLFSR 
     test/LFSR_test.cc
     ${lfsr_sources}
@@ -36,3 +37,11 @@ add_executable(test/runBerlekampMassey
     test/BerlekampMassey_test.cc
     ${lfsr_sources}
 )
+
+add_executable(test/runShortLFSR
+    test/ShortLFSR_test.cc
+    ${lfsr_sources}
+)
+
+add_test(ShortLFSR test/runShortLFSR)
+add_test(LongLFSR test/runLFSR)

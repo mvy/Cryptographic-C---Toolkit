@@ -4,7 +4,7 @@
 #include <iostream>
 
 int main(void) {
-    LFSR* l = new LFSR(TAP32 | TAP7 | TAP5 | TAP3 | TAP2 | TAP1 , 0x6C9AC645);
+    LFSR* l = new LFSR(32, TAP32 | TAP7 | TAP5 | TAP3 | TAP2 | TAP1 , 0x6C9AC645);
 
     std::string input;
 
