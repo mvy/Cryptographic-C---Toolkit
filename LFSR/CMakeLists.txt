@@ -44,5 +44,12 @@ add_executable(runShortLFSR
     ${lfsr_sources}
 )
 
+add_executable(runReductionEquality
+    test/ReductionEquality_test.cc
+    ${lfsr_sources}
+)
+
 add_test(ShortLFSR test/runShortLFSR)
 add_test(LongLFSR test/runLFSR)
+add_test(EqualReductedLFSR test/runReductionEquality)
+add_test(BerlekampMassey test/runBerlekampMassey)

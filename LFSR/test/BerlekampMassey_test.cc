@@ -2,16 +2,20 @@
 #include "LFSR.hh"
 #include <string>
 #include <iostream>
+#include <cassert>
 
 int main(void) {
-    LFSR* l = new LFSR(32, TAP32 | TAP7 | TAP5 | TAP3 | TAP2 | TAP1 , 0x6C9AC645);
 
-    std::string input;
+    std::string input = "0111010";
+    assert(CCTkAlgorithm::BerlekampMassey(input) == 3);
 
-    for(int i = 0; i < 100; i++) {
-        input += l->getValue();
-    }
+    input = "0110110110110110110110110110110110110110110110110110110110110110110110110110110110110110110110110110";
+    assert(CCTkAlgorithm::BerlekampMassey(input) == 2);
 
-    std::cout << "Berlekamp Massey l = " << CCTkAlgorithm::BerlekampMassey(input);
+    input = "011011011";
+    assert(CCTkAlgorithm::BerlekampMassey(input) == 2);
+
+    input = "0111100";
+    assert(CCTkAlgorithm::BerlekampMassey(input) == 4);
 
 }
