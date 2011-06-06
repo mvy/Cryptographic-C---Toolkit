@@ -7,9 +7,10 @@ Testing
 Run the cmake installation : 
 - cmake .
 - make
+- make test
 
-Run the test program
-- ./TestLFSR
+The tests programs will then run and check against know behaviour if everything
+goes well.
 
 Usage
 -----
@@ -19,4 +20,11 @@ Developement
 ------------
 
 To control the version number, use CMakeLists.txt.
-To change the compilation flag, change CMAKE_CXX_FLAGS in the CMakeLists.txt.
+To change the compilation flag, change CMAKE_CXX_FLAGS and
+CMAKE_CXX_FLAGS_Debug in the CMakeLists.txt.
+
+By default cmake will run in release configuration. To switch between Release
+and Debug mode use : 
+
+    cmake -DCMAKE_BUILD_TYPE=Debug .
+    cmake _DCMAKE_BUILD_TYPE=Release .

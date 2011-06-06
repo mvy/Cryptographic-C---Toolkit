@@ -5,8 +5,8 @@ set (CCTk_VERSION_MAJOR 1)
 set (CCTk_VERSION_MINOR 0)
 
 
-# Compiler flags
-set(CMAKE_CXX_FLAGS "-g -Wall")
+# Compiler flags for Debug (appended to CMAKE_CXX_FLAGS)
+set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall")
 
 # Headers settings (variables)
 configure_file (
@@ -15,6 +15,7 @@ configure_file (
 )
 
 
+SET(EXECUTABLE_OUTPUT_PATH test/)
 # Add binary tree to search path for include files
 include_directories(
     "${PROJECT_BINARY_DIR}/src"
@@ -28,17 +29,17 @@ file(
 
 # Tests executable
 ENABLE_TESTING()
-add_executable(test/runLFSR 
+add_executable(runLFSR 
     test/LFSR_test.cc
     ${lfsr_sources}
 )
 
-add_executable(test/runBerlekampMassey
+add_executable(runBerlekampMassey
     test/BerlekampMassey_test.cc
     ${lfsr_sources}
 )
 
-add_executable(test/runShortLFSR
+add_executable(runShortLFSR
     test/ShortLFSR_test.cc
     ${lfsr_sources}
 )
