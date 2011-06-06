@@ -1,7 +1,6 @@
 #include "BerlekampMassey.hh"
 #include "LFSR.hh"
 #include <string>
-#include <iostream>
 #include <cassert>
 
 int main(void) {
