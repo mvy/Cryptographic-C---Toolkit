@@ -7,6 +7,7 @@ for LFSR, here is our terminology.
 At the moment our LFSR only deal with binary values.
 
 Here is a representation of a LFSR of 32 bits
+
     -------------------------------------
     |     |     |     |     |     |     |
     | S32 | S31 | ... | S 3 | S 2 | S 1 |
@@ -20,7 +21,7 @@ Each Si elements are called *stages*.
 Masks and Taps
 --------------
 
-## Masks / Characteristic polynomial
+### Masks / Characteristic polynomial
 A mask is a binary value used to acces some part of a LFSR or to set the
 coefficient list which is used to shift the LSFR
 
@@ -31,7 +32,7 @@ In brief, MASKi has the ith bit set to 1.
 Masks can be used to express a LFSR using its *characteristic polynomial*
 [Canteau]
 
-## TAPS / Feedback polynomial
+### TAPS / Feedback polynomial
 TAPS are dependent of the architecture (at the moment, but they should depend
 the LFSR length in the future). They are like mask but in reverse order
 (MASK1=TAP32)
@@ -52,5 +53,6 @@ Berlekam Massey
 TODO
 
 [Canteau]: Anne Canteaut -- Encyclopedia of Cryptography and Security, H.
-van Tilborg, ed, Springer, 2005 -- Extracts on 
-http://www-roc.inria.fr/secret/Anne.Canteaut/encyclopedia.pdf
+van Tilborg, ed, Springer, 2005 [1]
+
+[1]: http://www-roc.inria.fr/secret/Anne.Canteaut/encyclopedia.pdf
