@@ -16,8 +16,11 @@ take care of optimisation depending on the length of the LFSR.
     - Do not XOR all bits if l < 8
     - Create intermediate values of chars
 
+- Add StreamCipher abstract class
+- Create StreamCiphering program
+
 Validation
 ----------
-- We need to validate the Berlekamp-Massey algorithm
-    - Need an input
-    - Need test
+- We need to validate the Berlekamp-Massey algorithm (DONE)
+    - Need an input (DONE)
+    - Need test (DONE)

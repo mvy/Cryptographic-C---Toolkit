@@ -27,4 +27,4 @@ By default cmake will run in release configuration. To switch between Release
 and Debug mode use : 
 
     cmake -DCMAKE_BUILD_TYPE=Debug .
-    cmake _DCMAKE_BUILD_TYPE=Release .
+    cmake -DCMAKE_BUILD_TYPE=Release .
