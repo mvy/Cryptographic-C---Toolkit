@@ -49,6 +49,11 @@ add_executable(runReductionEquality
     ${lfsr_sources}
 )
 
+add_executable(runMSeq
+    test/mseq_test.cc
+    ${lfsr_sources}
+)
+
 add_test(ShortLFSR test/runShortLFSR)
 add_test(LongLFSR test/runLFSR)
 add_test(EqualReductedLFSR test/runReductionEquality)
