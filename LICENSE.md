@@ -1,3 +1,6 @@
+License of the Cryptographic C++ Toolkit
+========================================
+
 Copyright (C) 2011 by The CCTk Team
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

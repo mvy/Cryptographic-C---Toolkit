@@ -8,11 +8,9 @@ bundle into a library but released in a source format.
 Content
 =======
 
-The CCTk includes :
+The CCTk includes the following modules:
 
-- A LFSR class to manipulate Linear Feedback Shift Register
-- Two headers to handle MASKS and TAPS for 32 bits and 64 bits ranges
-- A aSyncLFSR class to manipulate asynchronous LFSR
+- Linear Feedback Shift Register (LFSR)
 
 Licence
 =======
