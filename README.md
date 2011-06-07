@@ -12,7 +12,7 @@ The CCTk includes the following modules:
 
 - Linear Feedback Shift Register (LFSR)
 
-Licence
+License
 =======
 The CCTk is developed by the CCTk Team. See AUTHORS.md for the list of authors and
 their participation in the different modules of the CCTk.
