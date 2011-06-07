@@ -7,13 +7,12 @@ for LFSR, here is our terminology.
 At the moment our LFSR only deal with binary values.
 
 Here is a representation of a LFSR of 32 bits
-<code>
--------------------------------------
-|     |     |     |     |     |     |
-| S32 | S31 | ... | S 3 | S 2 | S 1 |
-|     |     |     |     |     |     |
--------------------------------------
-</code>
+    -------------------------------------
+    |     |     |     |     |     |     |
+    | S32 | S31 | ... | S 3 | S 2 | S 1 |
+    |     |     |     |     |     |     |
+    -------------------------------------
+
 it is stored as an int.
 
 Each Si elements are called *stages*.
@@ -52,6 +51,6 @@ Berlekam Massey
 
 TODO
 
-    [Canteau]: Anne Canteaut -- Encyclopedia of Cryptography and Security, H.
+[Canteau]: Anne Canteaut -- Encyclopedia of Cryptography and Security, H.
 van Tilborg, ed, Springer, 2005 -- Extracts on 
 http://www-roc.inria.fr/secret/Anne.Canteaut/encyclopedia.pdf
