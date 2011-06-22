@@ -19,9 +19,9 @@ bool aSyncLFSR::getValue() {
         /* TODO: COMMENT Loop */
         result ^= (*lIt).getBitAt(1);
     }
-    
+
     shift();
-    
+
     return (result & 1) == 1;
 }
 
@@ -29,7 +29,6 @@ void aSyncLFSR::shift() {
     /* The shifting process randomise a 0 or 1 called r
      * Then shift every LFSR whose master bit is equal to r
      * */
-    
     int countZero = 0;
     int countOne = 0;
     std::vector<LFSR>::iterator lIt;
@@ -38,20 +37,19 @@ void aSyncLFSR::shift() {
         lIt != list.end(); 
         lIt++, mIt++) {
         /* TODO: COMMENT Loop */
-        
+
         if((*lIt).getBitAt(*mIt)) {
             countOne++;
         } else {
             countZero++;
         }
     }
-    
+
     bool maj = countZero < countOne;
-    
+
     /* Odd numbers so can't be equal, we shift the selected by majority */
     for(lIt = list.begin(), mIt = masterBits.begin(); lIt != list.end(); lIt++, mIt++) {
         /* TODO: COMMENT Loop */
-        
         if((*lIt).getBitAt(*mIt) == maj) {
             (*lIt).shift();
         }
@@ -74,6 +72,9 @@ int aSyncLFSR::getSize() {
     return list.size();
 }
 
+/**
+ * Register the a LFSR in the asynchronous structure, with master bit aM
+ */
 aSyncLFSR::aSyncLFSR(const LFSR& a, int aM) {
     addLFSR(a, aM);
 }
