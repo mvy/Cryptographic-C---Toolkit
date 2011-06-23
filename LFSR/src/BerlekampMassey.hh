@@ -4,7 +4,9 @@
 #include <string>
 #include <vector>
 
+#include "BerlekampMasseyOutput.hh"
+
 namespace CCTkAlgorithm {
-    int BerlekampMassey(std::string finiteInputSequence);
+    BerlekampMasseyOutput* BerlekampMassey(std::string finiteInputSequence);
 }
 #endif

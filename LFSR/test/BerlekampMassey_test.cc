@@ -14,7 +14,7 @@ void assertConstruction(unsigned int length, unsigned int mask, int value) {
         output += (l->getValue() ? "1" : "0");
     }
 
-    int res = CCTkAlgorithm::BerlekampMassey(output);
+    int res = CCTkAlgorithm::BerlekampMassey(output)->getComplexity();
     std::cout << "Res: " << output << "[" << res << "]" << std::endl;
     assert(res == value);
 
@@ -24,16 +24,16 @@ void assertConstruction(unsigned int length, unsigned int mask, int value) {
 int main(void) {
 
     std::string input = "0111010";
-    assert(CCTkAlgorithm::BerlekampMassey(input) == 3);
+    assert(CCTkAlgorithm::BerlekampMassey(input)->getComplexity() == 3);
 
     input = "0110110110110110110110110110110110110110110110110110110110110110110110110110110110110110110110110110";
-    assert(CCTkAlgorithm::BerlekampMassey(input) == 2);
+    assert(CCTkAlgorithm::BerlekampMassey(input)->getComplexity() == 2);
 
     input = "011011011";
-    assert(CCTkAlgorithm::BerlekampMassey(input) == 2);
+    assert(CCTkAlgorithm::BerlekampMassey(input)->getComplexity() == 2);
 
     input = "0111100";
-    assert(CCTkAlgorithm::BerlekampMassey(input) == 4);
+    assert(CCTkAlgorithm::BerlekampMassey(input)->getComplexity() == 4);
 
 
     /* More complicated tests with m-sequences */

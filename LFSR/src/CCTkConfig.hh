@@ -1,0 +1,4 @@
+#define CCTk_VERSION_MAJOR 1
+#define CCTk_VERSION_MINOR 0
+
+#define LFSR32BITS

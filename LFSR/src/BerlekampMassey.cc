@@ -5,7 +5,7 @@
 
 namespace CCTkAlgorithm {
 
-    int BerlekampMassey(std::string finiteInputSequence) {
+    BerlekampMasseyOutput* BerlekampMassey(std::string finiteInputSequence) {
         const int N = finiteInputSequence.length();
 
         std::vector<int> bstore;
@@ -42,6 +42,8 @@ namespace CCTkAlgorithm {
             }
         }
 
-        return l;
+        BerlekampMasseyOutput* output = new BerlekampMasseyOutput(l, cstore);
+
+        return output;
     }
 }

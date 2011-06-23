@@ -15,7 +15,6 @@ configure_file (
 )
 
 
-SET(EXECUTABLE_OUTPUT_PATH test/)
 # Add binary tree to search path for include files
 include_directories(
     "${PROJECT_BINARY_DIR}/src"
@@ -27,34 +26,48 @@ file(
     src/*
     )
 
+SET(EXECUTABLE_OUTPUT_PATH bin/)
+add_executable(BerlekampMassey
+    tools/BerlekampMasseyMain.cc
+    ${lfsr_sources}
+)
+
+
 # Tests executable
 ENABLE_TESTING()
-add_executable(runLFSR 
+add_executable(testLFSR 
     test/LFSR_test.cc
     ${lfsr_sources}
 )
 
-add_executable(runBerlekampMassey
+add_executable(testBerlekampMassey
     test/BerlekampMassey_test.cc
     ${lfsr_sources}
 )
 
-add_executable(runShortLFSR
+add_executable(testShortLFSR
     test/ShortLFSR_test.cc
     ${lfsr_sources}
 )
 
-add_executable(runReductionEquality
+add_executable(testReductionEquality
     test/ReductionEquality_test.cc
     ${lfsr_sources}
 )
 
-add_executable(runMSeq
+add_executable(testMSeq
     test/mseq_test.cc
     ${lfsr_sources}
 )
 
-add_test(ShortLFSR test/runShortLFSR)
-add_test(LongLFSR test/runLFSR)
-add_test(EqualReductedLFSR test/runReductionEquality)
-add_test(BerlekampMassey test/runBerlekampMassey)
+add_executable(testASyncShort
+    test/aSync_test.cc
+    ${lfsr_sources}
+)
+
+
+add_test(ShortLFSR bin/testShortLFSR)
+add_test(LongLFSR bin/testLFSR)
+add_test(EqualReductedLFSR bin/testReductionEquality)
+add_test(BerlekampMassey bin/testBerlekampMassey)
+add_test(ASyncShort bin/testASyncShort)
