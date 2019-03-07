@@ -69,8 +69,7 @@ In order to be used as a running key in a stream cipher, LSFRs need to comply
 to a certain level of robustness.
 It has been proven (*add source please*) that with a sufficient length of LFSR
 output, one could determine the initial state of the register. If the feedback
-
-taps are parts of the key, the can be determine using the Berlekamp-Massey
+taps are parts of the key, they can be determined using the Berlekamp-Massey
 algorithm.
 
 ## Filtered LFSR
@@ -98,5 +97,5 @@ See Also
 - [Student project][3]
 
 [2]: http://en.wikipedia.org/wiki/Linear_feedback_shift_register
-[1]: http://www-roc.inria.fr/secret/Anne.Canteaut/encyclopedia.pdf
+[1]: https://www.rocq.inria.fr/secret/Anne.Canteaut/encyclopedia.pdf
 [3]: http://www.cayrel.net/IMG/pdf/enonceLFSR.pdf
